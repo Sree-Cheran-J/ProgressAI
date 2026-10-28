@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d20">
+  <title>ProgressAI — Personal Progress Monitoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a href="#home" class="brand" data-page="home"><span class="brand-mark">✦</span><span>Progress<span class="brand-accent">AI</span></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+    <nav class="top-nav" id="topNav">
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="dashboard">Dashboard</button>
+      <button class="nav-link" data-page="profile">Profile</button>
+      <button class="nav-link" data-page="login" id="loginNav">Login / Register</button>
+    </nav>
+    <div class="top-actions">
+      <span class="online-dot"></span><span class="online-label">Workspace ready</span>
+      <button class="avatar-small" id="headerAvatar" data-page="profile">G</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page active" id="page-home">
+      <div class="hero wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> AI-POWERED PERSONAL PRODUCTIVITY</div>
+          <h1>Make every day<br>count. <span class="gradient-text">See your<br class="desktop-break"> progress.</span></h1>
+          <p class="hero-description">Turn your tasks into momentum. Track your goals, understand your habits, and get smarter insights into your task completion journey.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-page="dashboard">Explore dashboard <span>↗</span></button>
+            <button class="btn btn-quiet" data-page="login">Create your account</button>
+          </div>
+          <div class="trust-line"><div class="mini-avatars"><span>J</span><span>M</span><span>A</span></div><span><b>Small steps. Big progress.</b><br>Built for your next milestone.</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="float-chip chip-top"><span class="chip-icon purple">✦</span><span><small>AI insight</small><b>You're building momentum</b></span><span class="chip-up">↗</span></div>
+          <div class="visual-core">
+            <div class="core-glow"></div>
+            <div class="core-symbol">✧</div>
+            <div class="core-ring ring-a"></div><div class="core-ring ring-b"></div>
+            <span class="core-label">PROGRESS ENGINE</span>
+          </div>
+          <div class="float-chip chip-bottom"><span class="mini-ring">78%</span><span><small>Weekly progress</small><b>You're on track</b></span></div>
+          <div class="tiny-stat stat-left"><span>↗</span><b>+24%</b><small>Focus time</small></div>
+          <div class="tiny-stat stat-right"><span>✓</span><b>08</b><small>Tasks completed</small></div>
+        </div>
+      </div>
+      <section class="wrap feature-section">
+        <div class="section-heading"><div><div class="eyebrow">YOUR PERSONAL WORKSPACE</div><h2>Progress that feels <span class="gradient-text">personal.</span></h2></div><p>Everything you need to stay focused, organized, and moving forward.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="feature-icon purple-bg">◈</div><h3>Track your progress</h3><p>See completed, active, and upcoming tasks in one clear view.</p><button class="text-link" data-page="dashboard">View dashboard ↗</button></article>
+          <article class="feature-card"><div class="feature-icon cyan-bg">⌁</div><h3>Understand your habits</h3><p>Visualize weekly activity and learn where your time goes.</p><button class="text-link" data-page="dashboard">Explore analytics ↗</button></article>
+          <article class="feature-card"><div class="feature-icon pink-bg">✧</div><h3>Plan with confidence</h3><p>Review indicative task risk estimates and stay ahead of deadlines.</p><button class="text-link" data-page="dashboard">See insights ↗</button></article>
+        </div>
+      </section>
+      <section class="wrap bottom-cta"><div><div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div><h2>One task at a time.</h2><p>Build consistency, celebrate progress, and keep going.</p></div><button class="btn btn-primary" data-page="login">Get started <span>→</span></button></section>
+    </section>
+
+    <section class="page wrap app-page" id="page-dashboard">
+      <div class="page-title-row"><div><div class="eyebrow">YOUR OVERVIEW</div><h1>Welcome back, <span id="welcomeName">there</span> <span class="wave">✦</span></h1><p class="muted">Here's your progress snapshot. Keep the momentum going.</p></div><button class="btn btn-primary" id="addTaskOpen">＋ Add a task</button></div>
+      <div class="stat-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total tasks</span><span class="stat-icon purple-bg">▦</span></div><div class="stat-number" id="totalTasks">8</div><div class="stat-foot"><span class="status-dot purple-dot"></span> Across your workspace</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-icon cyan-bg">✓</span></div><div class="stat-number" id="completedTasks">5</div><div class="stat-foot positive">↗ Great work so far</div></article>
+        <article class="stat-card"><div class="stat-top"><span>In progress</span><span class="stat-icon pink-bg">◷</span></div><div class="stat-number" id="activeTasks">2</div><div class="stat-foot"><span class="status-dot pink-dot"></span> Keep moving forward</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Completion rate</span><span class="stat-icon gold-bg">◎</span></div><div class="stat-number" id="completionRate">63<span class="percent">%</span></div><div class="stat-foot positive">Based on your task list</div></article>
+      </div>
+      <div class="dashboard-grid">
+        <article class="panel chart-panel"><div class="panel-heading"><div><h3>Weekly activity</h3><p class="muted">Your task completion rhythm</p></div><span class="pill">Last 7 days</span></div><div class="chart-wrap"><canvas id="weeklyChart"></canvas></div></article>
+        <article class="panel progress-panel"><div class="panel-heading"><div><h3>Overall progress</h3><p class="muted">Every small step counts</p></div><span class="sparkle">✧</span></div><div class="progress-donut" id="progressDonut"><div><strong id="donutPercent">63%</strong><small>completed</small></div></div><div class="progress-legend"><span><i class="legend-dot cyan-dot"></i>Completed <b id="legendCompleted">5</b></span><span><i class="legend-dot purple-dot"></i>Remaining <b id="legendRemaining">3</b></span></div></article>
+        <article class="panel tasks-panel"><div class="panel-heading"><div><h3>Your tasks</h3><p class="muted">A little progress each day</p></div><button class="text-link" id="showAllTasks">View all ↗</button></div><form class="task-form" id="taskForm"><input id="taskTitle" type="text" placeholder="What do you want to accomplish?" required maxlength="90"><select id="taskPriority" aria-label="Task priority"><option value="Medium">Medium priority</option><option value="Low">Low priority</option><option value="High">High priority</option><option value="Urgent">Urgent</option></select><input id="taskDeadline" type="datetime-local" aria-label="Task deadline"><select id="taskStatus"><option value="In Progress">In progress</option><option value="Completed">Completed</option><option value="Planned">Planned</option></select><button class="btn btn-primary" type="submit">Add</button></form><div class="task-list" id="taskList"></div><div id="managerPanel" hidden class="panel" style="margin-top:16px"><h3>Manager workspace</h3><p class="muted">Create tasks for an employee by email.</p><form id="assignForm" class="task-form"><input id="assignEmail" type="email" placeholder="Employee email" required><input id="assignTitle" placeholder="Task title" required maxlength="90"><input id="assignDeadline" type="datetime-local"><button class="btn btn-primary" type="submit">Assign</button></form><p id="managerMessage" class="form-message"></p></div><div class="panel" style="margin-top:16px"><div class="panel-heading"><div><h3>Notifications</h3><p class="muted">Upcoming deadlines and task updates</p></div></div><div id="notificationList" class="task-list"></div></div></article>
+        <article class="panel ai-panel"><div class="ai-orb">✧</div><div class="eyebrow">PROGRESSAI INSIGHT</div><h3 id="insightTitle">You're building momentum</h3><p id="insightText">Finish one of your active tasks today to keep your progress moving in the right direction.</p><div class="insight-meter"><span></span></div><div class="insight-foot"><span>Task completion snapshot</span><b id="insightRate">63%</b></div><div class="notice-mini">Predictions are estimates, not guarantees</div></article>
+      </div>
+    </section>
+
+    <section class="page wrap app-page" id="page-profile">
+      <div class="page-title-row"><div><div class="eyebrow">YOUR SPACE</div><h1>Your <span class="gradient-text">profile.</span></h1><p class="muted">Manage your details and celebrate your progress.</p></div><button class="btn btn-quiet" id="editProfileBtn">✎ Edit profile</button></div>
+      <article class="profile-banner panel"><div class="profile-avatar" id="profileAvatar">G</div><div class="profile-identity"><h2 id="profileName">Guest User</h2><p id="profileEmail">guest@progressai.demo</p><span class="member-badge">✦ Progress explorer</span></div><div class="profile-banner-stat"><small>Completion rate</small><strong id="profileRate">63%</strong><span>Keep growing ✨</span></div></article>
+      <div class="profile-grid"><article class="panel"><div class="panel-heading"><div><h3>Personal information</h3><p class="muted">Your account details</p></div><span class="panel-symbol">◎</span></div><form id="profileForm" class="profile-form"><label>Full name<input id="nameInput" value="Guest User" required maxlength="60"></label><label>Email address<input id="emailInput" type="email" value="guest@progressai.demo" readonly aria-describedby="emailHelp"><small id="emailHelp" class="muted">Email changes are disabled in this MVP.</small></label><label>Your focus goal<input id="goalInput" value="Build a consistent daily routine" maxlength="100"></label><button class="btn btn-primary" type="submit">Save changes</button><p class="form-message" id="profileMessage" aria-live="polite"></p></form></article><article class="panel"><div class="panel-heading"><div><h3>Your progress summary</h3><p class="muted">Small wins add up</p></div><span class="panel-symbol">✧</span></div><div class="summary-row"><span class="summary-icon cyan-bg">✓</span><span><b>Tasks completed</b><small>You've made real progress</small></span><strong id="profileCompleted">5</strong></div><div class="summary-row"><span class="summary-icon purple-bg">◷</span><span><b>Tasks in progress</b><small>Keep your focus steady</small></span><strong id="profileActive">2</strong></div><div class="summary-row"><span class="summary-icon gold-bg">⚑</span><span><b>Focus goal</b><small id="profileGoal">Build a consistent daily routine</small></span></div></article></div>
+      <article class="panel security-panel"><div><h3>Session</h3><p class="muted">Your profile and tasks are stored in the ProgressAI server database.</p></div><button class="btn btn-quiet" id="logoutBtn">Sign out</button></article>
+    </section>
+
+    <section class="page auth-page" id="page-login">
+      <div class="auth-shell">
+        <div class="auth-story"><a class="brand" href="#home" data-page="home"><span class="brand-mark">✦</span><span>Progress<span class="brand-accent">AI</span></span></a><div class="eyebrow">A SMARTER WAY TO MOVE FORWARD</div><h1>Your goals.<br><span class="gradient-text">Your growth.</span><br>Your future.</h1><p>Make your progress visible and your next step clearer. Your personal productivity space starts here.</p><div class="auth-benefits"><span><i>✓</i> Simple task tracking</span><span><i>✓</i> Visual progress insights</span><span><i>✓</i> One space for your goals</span></div><div class="auth-decoration"><div class="auth-decoration-ring"></div><span>✧</span></div></div>
+        <div class="auth-card panel"><div class="auth-tabs"><button class="auth-tab active" data-auth="login">Login</button><button class="auth-tab" data-auth="register">Register</button></div><div id="loginPanel"><div class="eyebrow">WELCOME BACK</div><h2>Pick up where you left off.</h2><p class="muted">Sign in with your ProgressAI account.</p><form id="loginForm" class="profile-form"><label>Email address<input id="loginEmail" type="email" placeholder="you@example.com" required autocomplete="email"></label><label>Password<input id="loginPassword" type="password" placeholder="Enter your password" required autocomplete="current-password" minlength="8"></label><button class="btn btn-primary full-width" type="submit">Login to ProgressAI →</button><p class="form-message" id="loginMessage" aria-live="polite"></p></form><p class="auth-switch">New here? <button class="inline-link" data-auth="register">Create an account</button></p></div><div id="registerPanel" hidden><div class="eyebrow">START YOUR JOURNEY</div><h2>Create your space.</h2><p class="muted">Create your secure ProgressAI account.</p><form id="registerForm" class="profile-form"><label>Full name<input id="registerName" type="text" placeholder="Your full name" required maxlength="60"></label><label>Email address<input id="registerEmail" type="email" placeholder="you@example.com" required autocomplete="email"></label><label>Password<input id="registerPassword" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password"></label><button class="btn btn-primary full-width" type="submit">Create account →</button><p class="form-message" id="registerMessage" aria-live="polite"></p></form><p class="auth-switch">Already registered? <button class="inline-link" data-auth="login">Login</button></p></div><div class="demo-note">Secure API-backed account · Employee role assigned by default</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><a href="#home" class="brand" data-page="home"><span class="brand-mark">✦</span><span>Progress<span class="brand-accent">AI</span></span></a><span>Made for progress, not perfection.</span><span>© <span id="year"></span> ProgressAI</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

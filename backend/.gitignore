@@ -1,0 +1,12 @@
+@"
+**/.env
+**/.venv/
+**/venv/
+**/Lib/
+**/Scripts/
+**/Include/
+**/__pycache__/
+**/*.pyc
+**/pyvenv.cfg
+.vercel/
+"@ | Set-Content .gitignore
