@@ -1,5 +1,5 @@
 const $ = (id) => document.getElementById(id);
-const API_BASE = window.PROGRESSAI_API_URL || "http://127.0.0.1:8000/api";
+const API_BASE = window.PROGRESSAI_API_URL || const API_BASE = window.PROGRESSAI_API_URL || "https://progressai.onrender.com/api";
 let accessToken = sessionStorage.getItem("progressai_access_token") || "";
 let currentUser = null, profile = {name:"", email:"", goal:""}, tasks = [], weeklyChart;
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
