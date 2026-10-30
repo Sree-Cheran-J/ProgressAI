@@ -24,8 +24,19 @@ async def lifespan(app):
     yield
     stop_scheduler(); await close_db()
 app=FastAPI(title=settings.app_name,version="1.0.0",lifespan=lifespan)
-origins=[x.strip() for x in settings.frontend_origins.split(",") if x.strip()]
-app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["GET","POST","PATCH","DELETE","OPTIONS"],allow_headers=["Authorization","Content-Type"])
+origins = [
+    "https://progressai-frontend.vercel.app",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 def serial(v):
     if isinstance(v,ObjectId): return str(v)
